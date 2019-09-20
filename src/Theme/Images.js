@@ -4,4 +4,5 @@
 
 export default {
   logo: require('../Images/splashScreen.jpg'),
+  background: require('../Images/home_background.jpg'),
 };

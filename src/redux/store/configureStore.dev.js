@@ -51,6 +51,7 @@ export default function configureStore(rootReducer, rootSaga) {
 
   const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(...middleware)));
   const persistor = persistStore(store);
+  // persistor.purge();
 
   // Inicia redux sagas watchers
   sagaMiddleware.run(rootSaga);

@@ -13,4 +13,7 @@ export default {
   defaultBackground: '#fff',
   success: '#28a745',
   error: '#dc3545',
+  black: '#000',
+  lightGrey: '#ddd',
+  darkGrey: '#A9A9A9',
 };

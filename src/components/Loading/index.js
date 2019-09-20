@@ -5,7 +5,6 @@ import Spinner from 'react-native-loading-spinner-overlay';
 // const Loading = () => <ActivityIndicator animating color={Colors.red800} />;
 
 const Loading = ({ visible }) => (
-  {visible ? <Spinner></Spinner>: <Spinner></Spinner>}
   <Spinner
     visible={visible}
     textContent="Loading..."

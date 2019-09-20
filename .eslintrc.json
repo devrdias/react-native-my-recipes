@@ -34,7 +34,12 @@
     "no-console": "off",
     "import/no-extraneous-dependencies": "off",
     "max-len": "off",
-    "react-native/no-inline-styles": "off"
+    "react-native/no-inline-styles": "off",
+    "no-use-before-define": "off",
+    "no-debugger":"off",
+    "consistent-return":"off",
+    "react/prop-types": "off"
+
   },
   "settings": {
     "import/resolver": {

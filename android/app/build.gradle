@@ -114,7 +114,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rntemplate"
+        applicationId "com.devrdias.myrecipes"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
