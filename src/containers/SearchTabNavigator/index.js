@@ -3,12 +3,27 @@ import { Text } from 'native-base';
 import React from 'react';
 import { Platform, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { FavoritesTab, SearchTab } from './Tabs';
+import RecipeDetail from '~/containers/RecipeDetail';
+
+const SearchStack = createStackNavigator({
+  SearchTab: {
+    screen: SearchTab,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    }),
+  },
+  RecipeDetail: { screen: RecipeDetail },
+},
+{
+  initialRouteName: 'RecipeDetail',
+  // initialRouteName: 'SearchTab',
+});
 
 
 const SearchTabNavigator = createBottomTabNavigator({
-  SearchTab: { screen: SearchTab },
+  SearchTab: SearchStack,
   FavoritesTab: { screen: FavoritesTab },
 
 }, {

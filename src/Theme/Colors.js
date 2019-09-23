@@ -1,10 +1,3 @@
-/**
- * Esse arquivo contém as cores da aplicaçao
- *
- * Definir as cores neste arquivo para facilitar manutencao e troca de cores na aplicacao
- *
- */
-
 export default {
   transparent: 'rgba(0,0,0,0)',
   text: '#212529',
@@ -16,4 +9,6 @@ export default {
   black: '#000',
   lightGrey: '#ddd',
   darkGrey: '#A9A9A9',
+  underlayColor: 'rgba(128, 128, 128, 0.1)',
+  lightGreen: '#2cd18a',
 };

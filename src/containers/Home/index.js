@@ -1,9 +1,10 @@
 import { Button, Text, View } from 'native-base';
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import NavigationService from '~/services/NavigationService';
-import Colors from '~/Theme/Colors';
 import Images from '~/Theme/Images';
+import Colors from '~/Theme/Colors';
 
 const Home = () => {
   const handleOnPress = () => {
@@ -11,7 +12,7 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.primary }}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image source={Images.background} style={styles.backgroundImage} />

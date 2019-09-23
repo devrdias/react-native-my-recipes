@@ -1,12 +1,12 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import ReceiptCard from '~/components/ReceiptCard';
+import RecipeCard from '~/components/RecipeCard';
 
 const SearchBody = ({ data }) => {
   const dataSource = Object.values(data);
 
   const renderItem = ({ item }) => (
-    <ReceiptCard
+    <RecipeCard
       item={item}
       onPressItem={() => alert(item.title)}
     />

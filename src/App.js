@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import RootScreen from './containers/Root/RootScreen';
+import AppContainer from '~/navigation/';
 import SplashScreen from './containers/SplashScreen';
 import rootReducer from './redux/reducers';
 import rootSaga from './redux/sagas';
@@ -16,7 +16,7 @@ console.disableYellowBox = true; // Debug Only - yellow box
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={<SplashScreen />} persistor={persistor}>
-      <RootScreen />
+      <AppContainer />
     </PersistGate>
   </Provider>
 );

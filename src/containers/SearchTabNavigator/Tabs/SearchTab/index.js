@@ -1,7 +1,7 @@
 import {
   Container, Content, View, Text,
 } from 'native-base';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Keyboard } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchHeader from '~/components/SearchHeader';
@@ -10,7 +10,7 @@ import Colors from '~/Theme/Colors';
 import SearchBody from '~/components/SearchBody';
 
 
-const SearchTab = () => {
+const SearchTab = (props) => {
   const [searchRecipe, setSearchRecipe] = useState('');
   const { data, loading } = useSelector(state => state.recipes);
 

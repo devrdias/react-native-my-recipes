@@ -1,8 +1,8 @@
 import {
   NavigationActions,
   DrawerActions,
-  StackActions
-} from "react-navigation";
+  StackActions,
+} from 'react-navigation';
 
 /**
  * A navegacao esta implementada como um servico para poder ser utilizada fora dos componentes React.
@@ -31,8 +31,8 @@ function navigate(routeName, params) {
   navigator.dispatch(
     NavigationActions.navigate({
       routeName,
-      params
-    })
+      params,
+    }),
   );
 }
 
@@ -60,10 +60,10 @@ function navigateAndReset(routeName, params) {
       actions: [
         NavigationActions.navigate({
           routeName,
-          params
-        })
-      ]
-    })
+          params,
+        }),
+      ],
+    }),
   );
 }
 
@@ -93,5 +93,5 @@ export default {
   toggleDrawer,
   goBack,
   navigateAndReset,
-  setTopLevelNavigator
+  setTopLevelNavigator,
 };

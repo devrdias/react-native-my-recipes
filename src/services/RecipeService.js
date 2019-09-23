@@ -1,4 +1,3 @@
-// Retorno padrao do apisauce:
 // response.ok       - Boolean - True is the status code is in the 200's; false otherwise.
 // response.problem  - String  - One of 6 different values (see below - problem codes)
 // response.data     - Object  - this is probably the thing you're after.
@@ -10,7 +9,7 @@
 import { create } from 'apisauce';
 import { Config } from '../config';
 
-const RecipeAPIClient = create({
+const ClientAPI = create({
   baseURL: Config.RECIPE_API_BASE_URL,
   headers: {
     Accept: 'application/json',
@@ -21,17 +20,83 @@ const RecipeAPIClient = create({
   timeout: 3000,
 });
 
+const handleResponse = (response) => {
+  if (!response.ok) {
+    return Promise.reject(new Error(response.problem));
+  }
+  if (response.data === 'CLIENT_ERROR') {
+    return Promise.reject(new Error(`CLIENT_ERROR/${response.data.message}`));
+  }
+  return response.data;
+};
+
+
 // Search recipes in natural language - no filters
 const search = async (query, offset = 0, number = 100) => {
   const endpoint = `search/?query=${query}&offset=${offset}&number=${number}`;
-  const response = await RecipeAPIClient.get(endpoint);
-
-  if (response.ok) {
-    return response.data;
-  }
-  return response.problem;
+  const response = await ClientAPI.get(endpoint);
+  return handleResponse(response);
 };
+
+// GET - get detail information about a recipe
+const getRecipeDetail = async (id) => {
+  const endpoint = `${id}/information`;
+  const response = await ClientAPI.get(endpoint);
+  return handleResponse(response);
+};
+
+
+// GET - Search Recipes
+const getSearchRecipes = async ({ category, filter }, offset = 0, number = 100) => {
+  let endpoint = `search/?offset=${offset}&number=${number}`;
+  endpoint += filter && `&${category}=${filter.toLowerCase()}`;
+  const response = await ClientAPI.get(endpoint);
+  return handleResponse(response);
+};
+
+
+// TODO: implement push notifications One Per Day
+// GET - Get Random Recipes
+// tags {vegetarian,dessert}
+const getRandomRecipes = (number, tags) => {};
+
+// GET - Autocomplete Recipe Search
+const autoCompleteRecipeSearch = () => {};
+
+// GET - Get food information
+const getFoodInformation = (id) => {};
+
+
+// Get Recipe Nutrition
+const getRecipeNutrition = (id) => {};
+
+// GET - Get Similar Recipes
+const getSimilarRecipes = (id) => {};
+
+// GET - Summarize Recipe
+const getSumarizeRecipe = (id) => {};
+
+// GET - Convert Amounts
+const getConvertAmounts = (ingredientName, targetUnit) => {};
+
+// GET - Get Wine Description
+const getWineDescription = (grape) => {};
+
+// GET - Get Wine Pairing
+const getWinePairing = (food) => {};
+
+// GET - Get product information
+const getProductInformation = (id) => {};
+
+// GET - Get Analyzed Recipe Instructions
+const getAnalyzedRecipeInstructions = (id, stepBreakdown = true) => {};
+
+
+// TODO: implement search recipe by ingredients
+
 
 export const RecipeService = {
   search,
+  getRecipeDetail,
+  getSearchRecipes,
 };

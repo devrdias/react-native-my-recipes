@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../Theme/Colors';
-import AppStyles from '../../Theme/AppStyles';
 
 export default StyleSheet.create({
   container: {
-    ...AppStyles.screen.container,
+    flex: 1,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.defaultBackground,
+    backgroundColor: Colors.lightGrey,
   },
   logo: {
     display: 'flex',
