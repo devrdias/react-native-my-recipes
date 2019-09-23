@@ -4,6 +4,8 @@ import {
   watchFetchRecipes,
   watchGetSearchRecipes,
   watchFetchRecipeByCategory,
+  watchGetRecipeNutrition,
+  watchGetRecipeSummary,
 } from './recipes.saga';
 
 
@@ -13,5 +15,7 @@ export default function* root() {
     fork(watchFetchRecipes),
     fork(watchGetSearchRecipes),
     fork(watchFetchRecipeByCategory),
+    fork(watchGetRecipeNutrition),
+    fork(watchGetRecipeSummary),
   ]);
 }

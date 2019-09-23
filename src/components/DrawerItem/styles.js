@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     width: 25,
   },
   textButton: {
-    fontFamily: 'FallingSkyCond',
+    // fontFamily: 'FallingSkyCond',
     fontSize: 16,
     marginLeft: 10,
     marginTop: 2,

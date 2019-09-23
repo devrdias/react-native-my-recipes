@@ -13,6 +13,14 @@ import {
   FETCH_SEARCH_RECIPE_REQUEST,
   FETCH_RECIPE_DETAIL_REQUEST,
   FETCH_RECIPE_BY_CATEGORY_REQUEST,
+  GET_RECIPE_NUTRITION_REQUEST,
+  GET_RECIPE_SUMMARY_REQUEST,
+  getRecipeNutritionSuccess,
+  getRecipeNutritionLoading,
+  getRecipeNutritionFailure,
+  getRecipeSummarySuccess,
+  getRecipeSummaryLoading,
+  getRecipeSummaryFailure,
 } from '../actions/recipe.actions';
 
 /**
@@ -67,4 +75,39 @@ function* fetchRecipeByCategory({ category, filter }) {
 }
 export function* watchFetchRecipeByCategory() {
   yield takeLatest(FETCH_RECIPE_BY_CATEGORY_REQUEST, fetchRecipeByCategory);
+}
+
+
+/**
+ * Get food nutrition detail
+ * @param {id} id
+ */
+function* getRecipeNutritionAsync({ id }) {
+  yield put(getRecipeNutritionLoading());
+  try {
+    const data = yield call(RecipeService.getRecipeNutrition, id);
+    yield put(getRecipeNutritionSuccess({ id, ...data }));
+  } catch (error) {
+    yield put(getRecipeNutritionFailure('Error API.', error));
+  }
+}
+export function* watchGetRecipeNutrition() {
+  yield takeLatest(GET_RECIPE_NUTRITION_REQUEST, getRecipeNutritionAsync);
+}
+
+/**
+ * Get food nutrition detail
+ * @param {id} id
+ */
+function* getRecipeSummaryAsync({ id }) {
+  yield put(getRecipeSummaryLoading());
+  try {
+    const data = yield call(RecipeService.getRecipeSummary, id);
+    yield put(getRecipeSummarySuccess({ id, ...data }));
+  } catch (error) {
+    yield put(getRecipeSummaryFailure('Error API.', error));
+  }
+}
+export function* watchGetRecipeSummary() {
+  yield takeLatest(GET_RECIPE_SUMMARY_REQUEST, getRecipeSummaryAsync);
 }

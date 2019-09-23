@@ -25,13 +25,13 @@ const MainStack = createStackNavigator(
   {
     initialRouteName: 'SplashScreen',
     // headerMode: 'none',
-    defaultNavigationOptions: () => ({
+    navigationOptions: () => ({
       headerTitleStyle: {
         flex: 1,
         fontWeight: 'bold',
         textAlign: 'center',
         alignSelf: 'center',
-        fontFamily: 'FallingSkyCond',
+        // fontFamily: 'FallingSkyCond',
       },
     }),
   },
@@ -60,7 +60,7 @@ const AppContainer = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Loading visible={loading} animation="fade" />
+      {/* <Loading visible={loading} animation="fade" /> */}
       <AppNavigation
         ref={(navigatorRef) => {
           NavigationService.setTopLevelNavigator(navigatorRef);

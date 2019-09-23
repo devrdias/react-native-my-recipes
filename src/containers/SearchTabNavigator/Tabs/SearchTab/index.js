@@ -36,7 +36,7 @@ const SearchTab = (props) => {
           flex: 1, height: 20, alignItems: 'center', justifyContent: 'center',
         }}
         >
-          <Text style={{ color: Colors.darkGrey }}>No items found</Text>
+          <Text style={{ color: Colors.darkgray }}>No items found</Text>
         </View>
       );
     }

@@ -54,6 +54,19 @@ const getSearchRecipes = async ({ category, filter }, offset = 0, number = 100) 
   return handleResponse(response);
 };
 
+// GET - Get Recipe Nutrition
+const getRecipeNutrition = async (id) => {
+  const endpoint = `${id}/nutritionWidget.json`;
+  const response = await ClientAPI.get(endpoint);
+  return handleResponse(response);
+};
+
+// GET - Summarize Recipe
+const getRecipeSummary = async (id) => {
+  const endpoint = `${id}/summary`;
+  const response = await ClientAPI.get(endpoint);
+  return handleResponse(response);
+};
 
 // TODO: implement push notifications One Per Day
 // GET - Get Random Recipes
@@ -67,14 +80,9 @@ const autoCompleteRecipeSearch = () => {};
 const getFoodInformation = (id) => {};
 
 
-// Get Recipe Nutrition
-const getRecipeNutrition = (id) => {};
-
 // GET - Get Similar Recipes
 const getSimilarRecipes = (id) => {};
 
-// GET - Summarize Recipe
-const getSumarizeRecipe = (id) => {};
 
 // GET - Convert Amounts
 const getConvertAmounts = (ingredientName, targetUnit) => {};
@@ -99,4 +107,6 @@ export const RecipeService = {
   search,
   getRecipeDetail,
   getSearchRecipes,
+  getRecipeNutrition,
+  getRecipeSummary,
 };

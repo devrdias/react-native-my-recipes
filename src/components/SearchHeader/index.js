@@ -19,7 +19,7 @@ const SearchHeader = (props) => {
         <Icon name="ios-search" />
         <Input
           placeholder={focus ? null : 'Gluten free brownies without sugar'}
-          placeholderTextColor={Colors.darkGrey}
+          placeholderTextColor={Colors.darkgray}
           underlineColorAndroid={Colors.transparent}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}

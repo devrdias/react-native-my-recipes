@@ -8,6 +8,16 @@ export const FETCH_RECIPE_DETAIL_LOADING = 'FETCH_RECIPE_DETAIL_LOADING';
 export const FETCH_RECIPE_DETAIL_SUCCESS = 'FETCH_RECIPE_DETAIL_SUCCESS';
 export const FETCH_RECIPE_DETAIL_FAILURE = 'FETCH_RECIPE_DETAIL_FAILURE';
 
+export const GET_RECIPE_NUTRITION_REQUEST = 'GET_RECIPE_NUTRITION_REQUEST';
+export const GET_RECIPE_NUTRITION_LOADING = 'GET_RECIPE_NUTRITION_LOADING';
+export const GET_RECIPE_NUTRITION_SUCCESS = 'GET_RECIPE_NUTRITION_SUCCESS';
+export const GET_RECIPE_NUTRITION_FAILURE = 'GET_RECIPE_NUTRITION_FAILURE';
+
+export const GET_RECIPE_SUMMARY_REQUEST = 'GET_RECIPE_SUMMARY_REQUEST';
+export const GET_RECIPE_SUMMARY_LOADING = 'GET_RECIPE_SUMMARY_LOADING';
+export const GET_RECIPE_SUMMARY_SUCCESS = 'GET_RECIPE_SUMMARY_SUCCESS';
+export const GET_RECIPE_SUMMARY_FAILURE = 'GET_RECIPE_SUMMARY_FAILURE';
+
 export const TOGGLE_FAVORITE_RECIPE = 'TOGGLE_FAVORITE_RECIPE';
 export const RESET_SEARCH_RECIPE = 'RESET_SEARCH_RECIPE';
 
@@ -95,5 +105,50 @@ export const fetchRecipeByCategorySuccess = payload => ({
 
 export const fetchRecipeByCategoryFailure = payload => ({
   type: FETCH_RECIPE_BY_CATEGORY_FAILURE,
+  error: payload,
+});
+
+
+/**
+ * Get food nutrition detail
+ */
+export const getRecipeNutrition = id => ({
+  type: GET_RECIPE_NUTRITION_REQUEST,
+  id,
+});
+
+export const getRecipeNutritionLoading = () => ({
+  type: GET_RECIPE_NUTRITION_LOADING,
+});
+
+export const getRecipeNutritionSuccess = payload => ({
+  type: GET_RECIPE_NUTRITION_SUCCESS,
+  payload,
+});
+
+export const getRecipeNutritionFailure = payload => ({
+  type: GET_RECIPE_NUTRITION_FAILURE,
+  error: payload,
+});
+
+/**
+ * Get food nutrition detail
+ */
+export const getRecipeSummary = id => ({
+  type: GET_RECIPE_SUMMARY_REQUEST,
+  id,
+});
+
+export const getRecipeSummaryLoading = () => ({
+  type: GET_RECIPE_SUMMARY_LOADING,
+});
+
+export const getRecipeSummarySuccess = payload => ({
+  type: GET_RECIPE_SUMMARY_SUCCESS,
+  payload,
+});
+
+export const getRecipeSummaryFailure = payload => ({
+  type: GET_RECIPE_SUMMARY_FAILURE,
   error: payload,
 });

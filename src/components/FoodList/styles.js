@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontFamily: 'FallingSky',
+    // fontFamily: 'FallingSky',
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',

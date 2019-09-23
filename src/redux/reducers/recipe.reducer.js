@@ -10,6 +10,10 @@ import {
   FETCH_RECIPE_BY_CATEGORY_LOADING,
   FETCH_RECIPE_BY_CATEGORY_SUCCESS,
   FETCH_RECIPE_BY_CATEGORY_FAILURE,
+  GET_RECIPE_NUTRITION_REQUEST,
+  GET_RECIPE_NUTRITION_SUCCESS,
+  GET_RECIPE_NUTRITION_FAILURE,
+  GET_RECIPE_SUMMARY_SUCCESS,
 } from '../actions/recipe.actions';
 
 const INITIAL_STATE = {
@@ -24,6 +28,7 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, { type, payload, error }) => {
   switch (type) {
+    case GET_RECIPE_NUTRITION_REQUEST:
     case FETCH_SEARCH_RECIPE_LOADING:
     case FETCH_RECIPE_DETAIL_LOADING:
     case FETCH_RECIPE_BY_CATEGORY_LOADING:
@@ -51,6 +56,7 @@ const reducer = (state = INITIAL_STATE, { type, payload, error }) => {
       };
     }
 
+    case GET_RECIPE_NUTRITION_FAILURE:
     case FETCH_RECIPE_BY_CATEGORY_FAILURE:
     case FETCH_SEARCH_RECIPE_FAILURE:
     case FETCH_RECIPE_DETAIL_FAILURE:
@@ -62,6 +68,8 @@ const reducer = (state = INITIAL_STATE, { type, payload, error }) => {
       };
 
 
+    case GET_RECIPE_SUMMARY_SUCCESS:
+    case GET_RECIPE_NUTRITION_SUCCESS:
     case FETCH_RECIPE_DETAIL_SUCCESS: {
       return {
         ...state,
@@ -74,6 +82,7 @@ const reducer = (state = INITIAL_STATE, { type, payload, error }) => {
         error: null,
       };
     }
+
 
     case TOGGLE_FAVORITE_RECIPE: {
       const toggle = !!state.data[payload.id];

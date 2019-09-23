@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import styles from './styles';
 import Colors from '~/Theme/Colors';
 import NavigationService from '~/services/NavigationService';
-import { fetchRecipeDetail } from '~/redux/actions/recipe.actions';
+import { fetchRecipeDetail, getRecipeNutrition, getRecipeSummary } from '~/redux/actions/recipe.actions';
 
 
 const FoodList = ({ data, loading }) => {
@@ -17,12 +17,14 @@ const FoodList = ({ data, loading }) => {
   const onPress = (item) => {
     const { id } = item;
     dispatch(fetchRecipeDetail(id));
+    dispatch(getRecipeNutrition(id));
+    dispatch(getRecipeSummary(id));
     NavigationService.navigate('Recipe', { id });
   };
 
   const renderNoItemsFound = () => (
     <View style={styles.noItemFound}>
-      <Text style={{ color: Colors.darkGrey }}>No recipe found</Text>
+      <Text style={{ color: Colors.darkgray }}>No recipe found</Text>
     </View>
   );
 

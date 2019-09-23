@@ -7,7 +7,7 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.lightGrey,
+    backgroundColor: Colors.lightgray,
   },
   logo: {
     display: 'flex',
